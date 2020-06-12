@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Electrical and Firmware Engineer">
+	<meta name="keywords" content="resume,cv,Jack Greenberg">
+	<meta name="author" content="Jack Greenberg">
+	<meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="preload" href="./fonts/FiraGO-Medium.woff2" as="font" crossorigin="anonymous">
+	<link rel="preload" href="./fonts/FiraGO-SemiBold.woff2" as="font" crossorigin="anonymous">
+	<link rel="preload" href="./fonts/FiraGO-Regular.woff2" as="font" crossorigin="anonymous">
+	<link rel="preload" href="./fonts/FiraGO-Bold.woff2" as="font" crossorigin="anonymous">
+	<link href="{{url_for('static', filename='build.css')}}" rel="stylesheet">
+	<title>{{ r.name }} — Resume</title>
+</head>
+
+<body>
+	<main class="font-firago hyphens-manual">
+
+		<!-- Page -->
+		<div class="p-6 mx-auto bg-white page max-w-letter md:h-letter xsm:p-8 sm:p-9 md:p-12">
+
+			<!-- Name -->
+			<header class="flex items-center mb-8 md:mb-11">
+				<div
+					class="initials-container mr-5 text-base leading-none text-white bg-gray-700 font-medium print:bg-black px-3 py-2.5">
+					<div class="initial text-center pb-0.8">J</div>
+					<div class="text-center initial">G</div>
+				</div>
+				<div>
+					<h1 class="text-2xl font-semibold text-gray-750">
+						{{ r.name }}
+					</h1>
+					<p class="text-gray-550 text-md">
+						{{ r.title }}
+					</p>
+				</div>
+			</header>
+			<!-- end Name -->
+
+			<!-- Column -->
+			<div class="md:col-count-2 print:col-count-2 col-gap-md md:h-letter-col print:h-letter-col col-fill-auto">
+
+				<!-- Use mt-3 class when the element isn’t the first one in the column -->
+				<section>
+
+					<section>
+						<h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
+							EXPERIENCE
+						</h2>
+
+						{% for p in r.experience %}
+						<section class="mb-4 break-inside-avoid">
+							<header>
+								<h3 class="text-lg font-semibold text-gray-700 leading-snugish">
+									{% if p.url %}
+									<a href="{{ p.url }}" class="group">
+										{{ p.name }}
+										<span
+											class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+									</a>
+									{% else %}
+										{{ p.name }}
+									{% endif %}
+								</h3>
+								<p class="leading-normal text-sm text-gray-650">
+									<span>{{ p.year }}</span> | <span class="text-gray-750">{{ p.tags|join(', ') }}</span>
+								</p>
+							</header>
+							<p class="mt-2 text-md text-gray-700 leading-normal">
+								{{ p.description }}
+							</p>
+						</section>
+
+						{% endfor %}
+
+						<h3 class="mb-4 font-bold tracking-widest text-sm1 text-gray-550 print:font-normal">
+							GAP YEAR
+						</h3>
+
+						{% for g in r["Gap Year Experiences"] %}
+						<section class="mb-4 break-inside-avoid">
+							<header>
+								<h3 class="text-lg font-semibold text-gray-700 leading-snugish font-noto-sans">
+									{{ g.name }}
+								</h3>
+								<p class="leading-normal text-md text-gray-650">
+									{{ g.title }}
+								</p>
+								<p class="leading-normal text-xs text-gray-800">
+									{{ g.dates }} | {{ g.location }}
+								</p>
+							</header>
+							<ul class="">
+								{% for b in g.bullets %}
+								<li class="mt-2 text-md text-gray-700 leading-normal">
+									<span class="absolute -ml-4 select-none case-sensitive">›</span>
+									{{ b }}
+								</li>
+								{% endfor %}
+							</ul>
+						</section>
+
+						{% endfor %}
+					</section>
+
+				<section class="mt-8">
+					<!-- To keep in the same column -->
+					<div class="break-inside-avoid">
+
+						<h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
+							EDUCATION
+						</h2>
+
+						{% for e in r.education %}
+						<section class="mb-4 break-inside-avoid">
+							<header>
+								<h3 class="text-lg font-semibold text-gray-700 leading-snugish font-noto-sans">
+									{{ e.name }}
+								</h3>
+								<p class="leading-normal text-md text-gray-650">
+									{{ e.major }}
+								</p>
+								<p class="leading-normal text-xs text-gray-800">
+									{{ e.graduation }} | {{ e.location }}
+								</p>
+							</header>
+							<ul class="">
+								{% for b in e.bullets %}
+								<li class="mt-2 text-md text-gray-700 leading-normal">
+									<span class="absolute -ml-4 select-none case-sensitive">›</span>
+									{{ b }}
+								</li>
+								{% endfor %}
+							</ul>
+						</section>
+
+					{% if e == r.education[0] %}
+					</div>
+					{% endif %}
+						{% endfor %}
+
+				</section>
+
+
+
+				<section class="mt-8">
+
+					<!-- To keep in the same column -->
+					<div class="break-inside-avoid">
+
+						<h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
+							SKILLS
+						</h2>
+
+						{% for k,l in r.skills.items() %}
+						<section class="mb-4 break-inside-avoid">
+							<header>
+								<h3 class="text-lg font-semibold text-gray-700 leading-snugish">
+									{{ k }}
+								</h3>
+							</header>
+							<ul class="my-2 mb-2 flex flex-wrap text-md leading-relaxed">
+								{% for s in l %}
+								<li
+									class="px-3 mr-1.5 mt-1.5 text-base text-gray-750 print:bg-white print:border-inset bg-gray-200">
+									{{ s }}
+								</li>
+								{% endfor %}
+							</ul>
+						</section>
+
+						{% endfor %}
+
+				</section>
+
+				<section class="mt-8">
+
+					<!-- To keep in the same column -->
+					<div class="break-inside-avoid">
+
+						<h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
+							CONTACT
+						</h2>
+
+						<section class="mb-4 break-inside-avoid">
+							<ul class="list-inside pr-7">
+								<li class="mt-1.5 leading-normal text-gray-700 text-md">
+									<a href="{{ r.website }}" class="group">
+										{{ r.website }}
+										<span
+											class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+									</a>
+								</li>
+								{% for p in r.profiles %}
+								<li class="mt-1.5 leading-normal text-gray-700 text-md">
+									<a href="{{ p.url }}" class="group">
+										{{ p.name }}
+										<span class="leading-normal text-sm text-gray-550">@{{ p.username }}</span>
+										<span
+											class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+									</a>
+								</li>
+								{% endfor %}
+								<li class="mt-1.5 leading-normal text-gray-700 text-md">
+									{{ r.location }}
+								</li>
+								<li class="mt-1.5 leading-normal text-gray-700 text-md">
+									{{ r.email }}
+								</li>
+								<li class="mt-1.5 leading-normal text-gray-700 text-md">
+									{{ r.phone }}
+								</li>
+							</ul>
+						</section>
+
+					</div>
+
+				</section>
+
+			</div>
+			<!-- end Column -->
+
+		</div>
+		<!-- end Page -->
+
+	</main>
+
+</body>
+
+</html>
