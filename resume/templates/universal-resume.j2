@@ -9,7 +9,7 @@
         <!-- Name -->
         <header class="flex items-center mb-8 md:mb-11">
             <div
-                class="initials-container mr-5 text-base leading-none text-white bg-gray-700 font-medium print:bg-black px-3 py-2.5">
+                class="initials-container mr-5 text-base leading-none text-white bg-gray-700 font-medium print:bg-gray-700 px-3 py-2.5">
                 <div class="initial text-center pb-0.8">J</div>
                 <div class="text-center initial">G</div>
             </div>
@@ -38,53 +38,33 @@
                     {% for p in r.experience %}
                     <section class="mb-4 break-inside-avoid">
                         <header>
-                            <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
+                            <h3 class="text-lg font-semibold text-gray-700 leading-snugish font-noto-sans">
                                 {% if p.url %}
                                 <a href="{{ p.url }}" class="group">
                                     {{ p.name }}
                                     <span
-                                        class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+                                        class="inline-block text-gray-550 print:text-gray-550 font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
                                 </a>
                                 {% else %}
                                     {{ p.name }}
                                 {% endif %}
                             </h3>
-                            <p class="leading-normal text-sm text-gray-650">
-                                <span>{{ p.year }}</span> | <span class="text-gray-750">{{ p.tags|join(', ') }}</span>
-                            </p>
-                        </header>
-                        <p class="mt-2 text-md text-gray-700 leading-normal">
-                            {{ p.description }}
-                        </p>
-                    </section>
-
-                    {% endfor %}
-
-                    <h3 class="mb-4 font-bold tracking-widest text-sm1 text-gray-550 print:font-normal">
-                        GAP YEAR
-                    </h3>
-
-                    {% for g in r["Gap Year Experiences"] %}
-                    <section class="mb-4 break-inside-avoid">
-                        <header>
-                            <h3 class="text-lg font-semibold text-gray-700 leading-snugish font-noto-sans">
-                                {{ g.name }}
-                            </h3>
                             <p class="leading-normal text-md text-gray-650">
-                                {{ g.title }}
+                                {{ p.title }}
                             </p>
                             <p class="leading-normal text-xs text-gray-800">
-                                {{ g.dates }} | {{ g.location }}
+                                {{ p.dates }} | {{ p.location }}
                             </p>
                         </header>
                         <ul class="">
-                            {% for b in g.bullets %}
+                            {% for b in p.bullets %}
                             <li class="mt-2 text-md text-gray-700 leading-normal">
                                 <span class="absolute -ml-4 select-none case-sensitive">›</span>
                                 {{ b }}
                             </li>
                             {% endfor %}
                         </ul>
+                    </section>
                     </section>
 
                     {% endfor %}
@@ -149,7 +129,7 @@
                         <ul class="my-2 mb-2 flex flex-wrap text-md leading-relaxed">
                             {% for s in l %}
                             <li
-                                class="px-3 mr-1.5 mt-1.5 text-base text-gray-750 print:bg-white print:border-inset bg-gray-200">
+                                class="px-3 mr-1.5 mt-1.5 text-base text-gray-750 print:bg-white print:border-gray-200 print:border-inset bg-gray-200">
                                 {{ s }}
                             </li>
                             {% endfor %}
@@ -175,7 +155,7 @@
                                 <a href="{{ r.website }}" class="group">
                                     {{ r.website }}
                                     <span
-                                        class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+                                        class="inline-block text-gray-550 print:text-gray-550 font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
                                 </a>
                             </li>
                             {% for p in r.profiles %}
@@ -184,7 +164,7 @@
                                     {{ p.name }}
                                     <span class="leading-normal text-sm text-gray-550">@{{ p.username }}</span>
                                     <span
-                                        class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+                                        class="inline-block text-gray-550 print:text-550 font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
                                 </a>
                             </li>
                             {% endfor %}
