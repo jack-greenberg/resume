@@ -8,10 +8,10 @@ DATA_PATH = Path("data/")
 BUILD_PATH = Path("build/")
 
 PDF_OPTIONS = {
-    'margin-top': '0',
-    'margin-right': '0',
-    'margin-bottom': '0',
-    'margin-left': '0',
+    "margin-top": "0",
+    "margin-right": "0",
+    "margin-bottom": "0",
+    "margin-left": "0",
 }
 
 env = Environment(loader=PackageLoader("resume", "templates"))
@@ -28,7 +28,9 @@ def save_file(file, text):
 
 
 def convert_to_pdf(file):
-    pdfkit.from_file(str(file), str(BUILD_PATH / "build.pdf"), options=PDF_OPTIONS)
+    pdfkit.from_file(
+        str(file), str(BUILD_PATH / "build.pdf"), options=PDF_OPTIONS
+    )
 
 
 def parse_yaml(y):
