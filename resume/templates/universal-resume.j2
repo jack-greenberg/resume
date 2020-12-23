@@ -43,7 +43,7 @@
                                 <a href="{{ p.url }}" class="group">
                                     {{ p.name }}
                                     <span
-                                        class="inline-block text-gray-550 print:text-gray-550 font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+                                        class="inline-block text-gray-550 font-normal print:hidden group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
                                 </a>
                                 {% else %}
                                     {{ p.name }}
@@ -129,7 +129,7 @@
                         <ul class="my-2 mb-2 flex flex-wrap text-md leading-relaxed">
                             {% for s in l %}
                             <li
-                                class="px-3 mr-1.5 mt-1.5 text-base text-gray-750 print:bg-white print:border-gray-200 print:border-inset bg-gray-200">
+                                class="px-3 mr-1.5 mt-1.5 text-base text-gray-750 bg-gray-200">
                                 {{ s }}
                             </li>
                             {% endfor %}
@@ -162,9 +162,11 @@
                             <li class="mt-1.5 leading-normal text-gray-700 text-md">
                                 <a href="{{ p.url }}" class="group">
                                     {{ p.name }}
+                                    {% if p.username %}
                                     <span class="leading-normal text-sm text-gray-550">@{{ p.username }}</span>
+                                    {% endif %}
                                     <span
-                                        class="inline-block text-gray-550 print:text-550 font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+                                        class="inline-block text-gray-550 print:hidden font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
                                 </a>
                             </li>
                             {% endfor %}

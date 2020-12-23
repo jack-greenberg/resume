@@ -1,14 +1,14 @@
 name: Jack Greenberg
 title: Electrical and Firmware Engineer
-email: jgreenberg@olin.edu
+email: j@jackgreenberg.co
 phone: "(323)397-8961"
-website: https://jacklgreenberg.com
+website: https://www.jackgreenberg.co
 location: Los Angeles, CA | Boston, MA
 
 profiles:
 - name: Github
   username: jack-greenberg
-  url: https://github.com/jack-greenberg
+  url: "https://github.com/jack-greenberg"
 
 education:
 - name: Olin College of Engineering
@@ -17,7 +17,8 @@ education:
   graduation: May 2023
   bullets:
   - Recipient of 4-year, 50% tuition merit scholarship.
-- name: 'UCLA Extension Course: Networking and TCP/IP'
+  - Notable courses include Modeling and Simulation of the Physical World, Software Systems, Computer Architecture, and Discrete Math
+- name: "UCLA Extension Course: Networking and TCP/IP"
   location: Los Angeles, CA
   graduation: March 2018
   bullets:
@@ -29,50 +30,51 @@ education:
   - Took courses on elementary number theory and cryptography, sign language, and jazz theory, among others.
 
 experience:
-- name: Indico Data Solutions
-  title: Software Engineer (Backend Team)
-  url: https://indico.io
-  dates: 05/2020 - Present
-  location: Los Angeles (remote)
-  bullets:
-  - Developed Redis-based cache for permissions authenticating to reduce network traffic in the microservices architecture
 - name: Olin Electric Motorsports
-  title: Electrical Lead
+  title: Telemetry Lead
   url: https://www.olinelectricmotorsports.com
-  dates: '09/2019 - Present'
+  dates: "09/2019 - Present"
   location: Olin College
   bullets:
-  - Worked with other electrical leads to design the car's electrical systems and craft an onboarding experiences for first-year students
+  - Led development of a telemetry module to stream data in real-time over radio-frequency from the car to an off-board USB receiver
   - Developed mission-critical board to perform safety checking for the car, and a board for shutdown circuit monitoring
+
+- name: Indico Data Solutions
+  title: Software Engineer Intern
+  url: https://indico.io
+  dates: 05/2020 - 08/2020
+  location: Los Angeles (remote)
+  bullets:
+  - Built a Redis-based cache for user-object permissions to reduce network traffic among microservices, preventing performance bottlenecks
+  - Converted the entire microservices infrastructure across 17 repositories from Tornado to Asyncio coroutines with no deployment issues
+
 - name: Yay Brigade
   title: Full-Stack Developer
   dates: 01/2019 - 12/2019
   location: Los Angeles (Gap Year)
   bullets:
   - Implemented designs with a focus on keeping them light-weight and accessible.
-  - Built a web app to monitor the status of the sites maintained by the studio with
-    a notifcation system. Written with PHP and SQL.
-  - Built a web app (designed by the head of the studio) that allows users to keep
-    a list of their favorite bands and compare them with other users. Written with
-    ReactJS, PHP, and SQL.
+  - Built a web app to monitor the status of the sites maintained by the studio with a notifcation system. Written with PHP and MySQL.
+
 - name: Norwegian Refugee Council
   title: Data Architect
   dates: 09/2018 - 12/2018
   location: Berlin, Germany (Gap Year)
   bullets:
-  - Assisted the team in developing a data collection and project management tool
-    used in refugee camps around the world, using Salesforce as a platform.
-  - Traveled to a conference in Brussels with my team to present to representatives
-    from around the world about the data collection and project management tools we
-    were building.
+  - Assisted the team in developing a data collection and project management tool used in refugee camps around the world, using Salesforce as a platform.
+  - Traveled to a conference in Brussels with my team to present to representatives from around the world about the data collection and project management tools we were building.
 
 skills:
   Software:
   - Python
-  - C (embedded, systems-level)
-  - Go
+  - Rust
   - Docker
+  - Kubernetes
+  - C
+  - Embedded C
   - MATLAB
+  - GraphQL
+  - Redis
   Front-End:
   - JavaScript
   - ReactJS
