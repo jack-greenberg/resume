@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ .Site.Title }}</title>
+        {{ $style := resources.Get "styles.css" | postCSS (dict "config" "postcss.config.js")  | minify | fingerprint }}
+
+        <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+    </head>
+
+    <body>
+        {{ block "main" . }}{{ end }}
+    </body>
+</html>
